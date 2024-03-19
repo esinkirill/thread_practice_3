@@ -5,8 +5,11 @@
 #include <windows.h>
 
 const int GRID_SIZE = 40;
-const int MAX_ITERATIONS = 100;
+const int MAX_ITERATIONS = 200;
 const int DELAY = 50;
+
+const int COLOR_WHITE = 15;
+const int COLOR_BLUE = 9;
 
 //инит
 void initializeGrid(int grid[GRID_SIZE][GRID_SIZE]) {
@@ -18,13 +21,26 @@ void initializeGrid(int grid[GRID_SIZE][GRID_SIZE]) {
 }
 
 void printGrid(int grid[GRID_SIZE][GRID_SIZE]) {
+    COORD position;
+    position.X = 0;
+    position.Y = 0;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), position); 
+
     for (int i = 0; i < GRID_SIZE; ++i) {
         for (int j = 0; j < GRID_SIZE; ++j) {
-            std::cout << (grid[i][j] ? '*' : ' ') << " ";
+            if (grid[i][j]) {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), COLOR_WHITE);
+                std::cout <<"` ";
+            }
+            else {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), COLOR_BLUE);
+                std::cout << "[]";
+            }
         }
         std::cout << std::endl;
     }
 }
+
 //для правил бытия
 int countNeighbors(int grid[GRID_SIZE][GRID_SIZE], int x, int y) {
     int count = 0;
@@ -40,6 +56,7 @@ int countNeighbors(int grid[GRID_SIZE][GRID_SIZE], int x, int y) {
     }
     return count;
 }
+
 //правила бытия
 void updateGrid(int grid[GRID_SIZE][GRID_SIZE]) {
     int newGrid[GRID_SIZE][GRID_SIZE] = { 0 };
@@ -75,9 +92,6 @@ int main() {
         printGrid(grid);
         updateGrid(grid);
         Sleep(DELAY);
-        if (iteration != MAX_ITERATIONS - 1) {
-            system("cls");
-        }
     }
 
     return 0;
