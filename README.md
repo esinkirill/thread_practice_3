@@ -15,5 +15,5 @@
 
 ## Результат 
 
-https://github.com/esinkirill/thread_practice_3/assets/78916798/bde0d152-1b9b-4895-a59b-d19d1d417a9e
+https://github.com/esinkirill/thread_practice_3/assets/78916798/9f10b82f-2ab8-481c-ad1c-5beb86fe83be
 
