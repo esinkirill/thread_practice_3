@@ -8,7 +8,7 @@ const int GRID_SIZE = 40;
 const int MAX_ITERATIONS = 100;
 const int DELAY = 50;
 
-//инит
+//РёРЅРёС‚
 void initializeGrid(int grid[GRID_SIZE][GRID_SIZE]) {
     for (int i = 0; i < GRID_SIZE; ++i) {
         for (int j = 0; j < GRID_SIZE; ++j) {
@@ -25,7 +25,7 @@ void printGrid(int grid[GRID_SIZE][GRID_SIZE]) {
         std::cout << std::endl;
     }
 }
-//для правил бытия
+//РґР»СЏ РїСЂР°РІРёР» Р±С‹С‚РёСЏ
 int countNeighbors(int grid[GRID_SIZE][GRID_SIZE], int x, int y) {
     int count = 0;
     for (int i = -1; i <= 1; ++i) {
@@ -40,7 +40,7 @@ int countNeighbors(int grid[GRID_SIZE][GRID_SIZE], int x, int y) {
     }
     return count;
 }
-//правила бытия
+//РїСЂР°РІРёР»Р° Р±С‹С‚РёСЏ
 void updateGrid(int grid[GRID_SIZE][GRID_SIZE]) {
     int newGrid[GRID_SIZE][GRID_SIZE] = { 0 };
 
@@ -65,7 +65,7 @@ void updateGrid(int grid[GRID_SIZE][GRID_SIZE]) {
 
 int main() {
 
-    srand(time(nullptr)); //новое зерно для генерации
+    srand(time(nullptr)); //РЅРѕРІРѕРµ Р·РµСЂРЅРѕ РґР»СЏ РіРµРЅРµСЂР°С†РёРё
 
     int grid[GRID_SIZE][GRID_SIZE];
 
